@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Home</title>
+  <meta name="description" content="Personal homepage for Your Name: projects, writing, and contact." />
+
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --card:#101827;
+      --text:#e6e9ef;
+      --muted:#a7b0c0;
+      --accent:#6ea8fe;
+      --line: rgba(255,255,255,.10);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(110,168,254,.35), transparent 60%),
+                  radial-gradient(1000px 500px at 110% 10%, rgba(130,97,255,.25), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      position:sticky;top:0;backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,15,25,.9), rgba(11,15,25,.55));
+      border-bottom:1px solid var(--line);
+      padding:14px 20px;
+      z-index:10;
+    }
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .avatar{
+      width:40px;height:40px;border-radius:50%;
+      background: linear-gradient(135deg, rgba(110,168,254,1), rgba(130,97,255,1));
+      display:grid;place-items:center;
+      box-shadow: var(--shadow);
+      font-weight:700;
+    }
+    nav{display:flex;gap:14px;flex-wrap:wrap}
+    nav a{
+      text-decoration:none;
+      padding:8px 10px;border-radius:10px;
+      color:var(--muted);
+    }
+    nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .hero{padding:34px 0 18px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){
+      .hero-grid{grid-template-columns: 1fr}
+      header{position:relative}
+    }
+    .card{
+      background: rgba(16,24,39,.75);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+    h1{margin:0 0 10px;font-size:clamp(28px, 4vw, 44px);letter-spacing:-.02em}
+    .tagline{color:var(--muted);font-size:16px;margin:0 0 16px}
+    .buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:12px;
+      text-decoration:none;border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .btn:hover{background:rgba(255,255,255,.08)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(110,168,254,.95), rgba(130,97,255,.95));
+      border: none;
+      color:#0b0f19;
+      font-weight:700;
+    }
+    .btn.primary:hover{filter:saturate(1.1) brightness(1.05)}
+    .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .pill{
+      font-size:13px;color:var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px;border-radius:999px;
+      background: rgba(255,255,255,.03);
+    }
+    section{padding:14px 0}
+    .section-title{
+      display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+      margin: 18px 0 12px;
+    }
+    .section-title h2{margin:0;font-size:18px;letter-spacing:-.01em}
+    .section-title span{color:var(--muted);font-size:13px}
+    .grid{
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns: 1fr}
+    }
+    .item h3{margin:0 0 6px;font-size:16px}
+    .item p{margin:0;color:var(--muted);font-size:14px}
+    .meta{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+    .meta a{color:var(--accent);text-decoration:none}
+    .meta a:hover{text-decoration:underline}
+    footer{
+      margin-top:26px;
+      color:var(--muted);
+      font-size:13px;
+      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      border-top:1px solid var(--line);
+      padding-top:16px;
+    }
+    .kbd{
+      border:1px solid var(--line);
+      padding:2px 6px;border-radius:8px;
+      background:rgba(255,255,255,.03);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:12px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class="brand" href="#top">
+      <div class="avatar">YN</div>
+      <div>
+        <div style="font-weight:700;line-height:1.1">Your Name</div>
+        <div style="color:var(--muted);font-size:13px;line-height:1.1">Your role / tagline</div>
+      </div>
+    </a>
+
+    <nav aria-label="Primary">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="card">
+          <h1>Hi, I’m Your Name.</h1>
+          <p class="tagline">
+            I build <strong>useful things</strong> and write about <strong>what I learn</strong>.
+            This is my little corner of the internet.
+          </p>
+
+          <div class="buttons">
+            <a class="btn primary" href="#projects" aria-label="View my projects">View Projects →</a>
+            <a class="btn" href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="mailto:you@example.com">Email</a>
+          </div>
+
+          <div class="pill-row" aria-label="Highlights">
+            <span class="pill">📍 Chicago, IL</span>
+            <span class="pill">💼 Open to opportunities</span>
+            <span class="pill">🛠️ JavaScript · Python · HTML/CSS</span>
+          </div>
+        </div>
+
+        <aside class="card">
+          <div class="section-title" style="margin-top:0">
+            <h2>Now</h2>
+            <span>What I’m focused on</span>
+          </div>
+          <div class="item">
+            <h3>Building</h3>
+            <p>Short description of what you’re making right now.</p>
+            <div class="meta">
+              <span>Updated: <time datetime="2025-12-17">Dec 17, 2025</time></span>
+            </div>
+          </div>
+          <hr style="border:none;border-top:1px solid var(--line);margin:14px 0" />
+          <div class="item">
+            <h3>Learning</h3>
+            <p>Topics you’re learning (e.g., systems design, React, ML basics).</p>
+          </div>
+          <hr style="border:none;border-top:1px solid var(--line);margin:14px 0" />
+          <div class="item">
+            <h3>Reading</h3>
+            <p>A book/article/paper you recommend.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <h2>Projects</h2>
+        <span>Things I’ve shipped</span>
+      </div>
+
+      <div class="grid">
+        <article class="card item">
+          <h3>Project One</h3>
+          <p>One-sentence description. What problem does it solve?</p>
+          <div class="meta">
+            <span>Tech: HTML · CSS · JS</span>
+            <a href="https://example.com" target="_blank" rel="noreferrer">Live</a>
+            <a href="https://github.com/yourusername/project-one" target="_blank" rel="noreferrer">Code</a>
+          </div>
+        </article>
+
+        <article class="card item">
+          <h3>Project Two</h3>
+          <p>One-sentence description. Add a result or metric if you have one.</p>
+          <div class="meta">
+            <span>Tech: Python · Flask</span>
+            <a href="https://github.com/yourusername/project-two" target="_blank" rel="noreferrer">Code</a>
+          </div>
+        </article>
+
+        <article class="card item">
+          <h3>Project Three</h3>
+          <p>One-sentence description. Keep it simple and concrete.</p>
+          <div class="meta">
+            <span>Tech: React</span>
+            <a href="https://example.com" target="_blank" rel="noreferrer">Live</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-title">
+        <h2>About</h2>
+        <span>A quick intro</span>
+      </div>
+
+      <div class="card">
+        <p style="margin:0;color:var(--muted)">
+          Write 3–5 sentences about who you are, what you care about, and what you’re working toward.
+          Mention industries, strengths, and the kinds of problems you like solving.
+        </p>
+
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="/resume.pdf">Download Résumé</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing">
+      <div class="section-title">
+        <h2>Writing</h2>
+        <span>Notes & posts</span>
+      </div>
+
+      <div class="grid">
+        <article class="card item">
+          <h3>Post Title One</h3>
+          <p>A short teaser of the post in 1–2 lines.</p>
+          <div class="meta">
+            <time datetime="2025-11-01">Nov 1, 2025</time>
+            <a href="/posts/post-one.html">Read →</a>
+          </div>
+        </article>
+
+        <article class="card item">
+          <h3>Post Title Two</h3>
+          <p>A short teaser of the post in 1–2 lines.</p>
+          <div class="meta">
+            <time datetime="2025-09-14">Sep 14, 2025</time>
+            <a href="/posts/post-two.html">Read →</a>
+          </div>
+        </article>
+
+        <article class="card item">
+          <h3>Post Title Three</h3>
+          <p>A short teaser of the post in 1–2 lines.</p>
+          <div class="meta">
+            <time datetime="2025-06-30">Jun 30, 2025</time>
+            <a href="/posts/post-three.html">Read →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <span>Say hi</span>
+      </div>
+
+      <div class="card">
+        <p style="margin-top:0;color:var(--muted)">
+          The fastest way to reach me is email. I also hang out on GitHub and LinkedIn.
+        </p>
+
+        <div class="buttons">
+          <a class="btn primary" href="mailto:you@example.com">you@example.com</a>
+          <a class="btn" href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+
+        <p style="margin:14px 0 0;color:var(--muted);font-size:13px">
+          Tip: Press <span class="kbd">Ctrl</span> + <span class="kbd">F</span> to search this page.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Your Name</div>
+      <div>Built with plain HTML/CSS • Hosted on GitHub Pages</div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
